@@ -955,11 +955,11 @@ body {
 }
 
 .boardship {
-  display: flex;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  padding: 20px 0px;
-  justify-content: center;
+  	display: flex;
+  	flex-wrap: wrap;
+  	grid-gap: 20px;
+  	padding: 20px 0px;
+  	justify-content: center;
 }
 
 .boardship-mobile {
