@@ -17,7 +17,7 @@ body {
 	font-size: 14px;
 	font-family: 'Saira', monospace;
 	min-height: 100vh;
-  max-width: 100vw;
+	max-width: 100vw;
 	display: grid;
 	grid-template-rows: 1fr auto;
 	position: relative;
@@ -141,15 +141,15 @@ body {
 }
 
 #header {
-  width: 960px;
-  line-height: 40px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  z-index: 20;
-  padding: 20px 0px;
+	width: 960px;
+	line-height: 40px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	z-index: 20;
+	padding: 20px 0px;
 }
 
 #header-left {
@@ -157,7 +157,7 @@ body {
 }
 
 #header-right {
-  height: 30px;
+	height: 30px;
 }
 
 .header-section {
