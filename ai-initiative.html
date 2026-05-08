@@ -3,13 +3,16 @@ layout: default
 title: AI Career Initiative | Hacker Dojo
 ---
 <!-- Load Tailwind and Fonts for this page -->
-<script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-<link href="[https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap](https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap)" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Saira:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <script>
     tailwind.config = {
         theme: {
             extend: {
-                fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'] },
+                fontFamily: { sans: ['Saira', 'system-ui', 'sans-serif'] },
                 colors: {
                     dojo: {
                         red: '#C84A0E',
@@ -23,12 +26,12 @@ title: AI Career Initiative | Hacker Dojo
     }
 </script>
 
-<!-- Main Page Wrapper -->
+<!-- Main Wrapper -->
 <div class="bg-[#F5F5F5] text-[#141414] antialiased selection:bg-dojo-red selection:text-white font-sans scroll-smooth">
 
     <!-- NEW: Reinvent Yourself Hero Section -->
     <header class="py-24 px-6 text-center max-w-5xl mx-auto">
-        <div class="inline-flex items-center gap-2 bg-red-50 text-dojo-red px-5 py-2 rounded-full text-sm font-bold mb-8 border border-red-100 shadow-sm">
+        <div class="inline-flex items-center gap-2 bg-red-50 text-dojo-red px-5 py-2 rounded-full text-sm font-bold mb-8 border border-red-100 shadow-sm uppercase tracking-widest">
             <span class="text-lg leading-none mt-[1px]">✦</span> Reinvent Yourself
         </div>
         <h1 class="text-5xl md:text-7xl font-black tracking-tight text-dojo-navy mb-4 leading-tight">
@@ -42,7 +45,7 @@ title: AI Career Initiative | Hacker Dojo
             <a href="#paths" class="bg-dojo-red text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition shadow-[0_4px_14px_rgba(200,74,14,0.3)] w-full sm:w-auto">Find Your Path &rarr;</a>
             <button class="bg-white border-2 border-gray-200 text-dojo-navy px-8 py-4 rounded-xl font-bold text-lg hover:border-gray-300 transition flex items-center justify-center gap-2 w-full sm:w-auto shadow-sm">
                 Watch 2-Min Overview 
-                <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-dojo-navy"><path d="M8 5v14l11-7z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-dojo-navy"><path d="M8 5v14l11-7z"/></svg>
             </button>
         </div>
     </header>
@@ -83,35 +86,89 @@ title: AI Career Initiative | Hacker Dojo
                 Guided Outcome Sprints
             </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- AI Builder Sprint -->
-                <div class="bg-white border border-gray-200 rounded-3xl p-10 hover:shadow-2xl transition-all flex flex-col h-full relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-dojo-purple"></div>
-                    <div class="text-xs font-bold text-dojo-purple uppercase tracking-widest mb-4">1 Saturday Morning · 4 Hours</div>
-                    <h3 class="text-4xl font-extrabold mb-4 text-gray-900">AI Builder Sprint</h3>
-                    <div class="text-2xl font-bold text-gray-400 mb-8">$147</div>
-                    <p class="text-gray-600 mb-10 flex-grow font-medium leading-relaxed text-lg">
-                        Build first. Decide after. A high-speed execution morning where you skip the slides and build your first working AI workflow using Zapier, Make, and Claude. Walk in with an idea, walk out by noon with a deployed automation.
-                    </p>
-                    <!-- Prominent Link -->
-                    <a href="[https://buy.stripe.com/your-ai-sprint-link](https://buy.stripe.com/your-ai-sprint-link)" class="block w-full text-center py-5 rounded-2xl bg-dojo-purple text-white font-black text-xl hover:bg-purple-700 transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] group-hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transform group-hover:-translate-y-1">
-                        Register for AI Builder Sprint &rarr;
-                    </a>
-                </div>
-
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <!-- Career Pivot Sprint -->
-                <div class="bg-white border border-gray-200 rounded-3xl p-10 hover:shadow-2xl transition-all flex flex-col h-full relative overflow-hidden group">
+                <div class="bg-white border border-gray-200 rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 flex flex-col relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-full h-2 bg-dojo-blue"></div>
                     <div class="text-xs font-bold text-dojo-blue uppercase tracking-widest mb-4">1 Saturday Morning · 4 Hours</div>
                     <h3 class="text-4xl font-extrabold mb-4 text-gray-900">Career Pivot Sprint</h3>
                     <div class="text-2xl font-bold text-gray-400 mb-8">$197</div>
-                    <p class="text-gray-600 mb-10 flex-grow font-medium leading-relaxed text-lg">
-                        Translate your past experience into the AI era. In one morning, we completely rewrite your resume, restructure your LinkedIn, and give you the exact outbound pipeline scripts needed to land an AI-adjacent role.
+                    
+                    <p class="text-gray-600 mb-6 font-medium leading-relaxed text-lg">
+                        The job market changed, but most advice you hear is still the same. This isn’t another generic career workshop. It’s a live execution sprint focused on helping you adapt to an AI-disrupted market.
                     </p>
-                    <!-- Prominent Link -->
-                    <a href="[https://buy.stripe.com/your-career-sprint-link](https://buy.stripe.com/your-career-sprint-link)" class="block w-full text-center py-5 rounded-2xl bg-dojo-blue text-white font-black text-xl hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] group-hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transform group-hover:-translate-y-1">
-                        Register for Career Pivot Sprint &rarr;
-                    </a>
+
+                    <!-- Expanded Content -->
+                    <div id="career-expanded" class="overflow-hidden transition-all duration-500 max-h-0 opacity-0 flex flex-col gap-6">
+                        <ul class="space-y-4 mb-2">
+                            <li class="flex items-start gap-3 text-gray-600 text-lg font-medium leading-relaxed">
+                                <span class="text-dojo-blue font-bold mt-0.5">✓</span>
+                                <span><strong>Identify the Gap:</strong> Figure out exactly where your past experience meets current market demand.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-600 text-lg font-medium leading-relaxed">
+                                <span class="text-dojo-blue font-bold mt-0.5">✓</span>
+                                <span><strong>The Pipeline:</strong> Master the AI-assisted outbound strategies that actually generate high-paying interviews.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-600 text-lg font-medium leading-relaxed">
+                                <span class="text-dojo-blue font-bold mt-0.5">✓</span>
+                                <span><strong>The Clarity:</strong> Walk out by noon with certainty about your next pivot and the exact steps to get your first interviews for it.</span>
+                            </li>
+                        </ul>
+
+                        <!-- Prominent Link -->
+                        <a href="https://buy.stripe.com/your-career-sprint-link" class="block w-full text-center py-5 rounded-2xl bg-dojo-blue text-white font-black text-xl hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transform hover:-translate-y-1">
+                            Register for Career Pivot Sprint &rarr;
+                        </a>
+                    </div>
+
+                    <div class="mt-auto pt-6">
+                        <button onclick="toggleCard('career-expanded', this)" class="w-full text-center py-4 rounded-2xl bg-gray-50 text-gray-700 font-bold text-lg hover:bg-gray-100 transition-all flex items-center justify-center gap-2 border border-transparent hover:border-gray-200">
+                            <span class="btn-text">See More...</span>
+                            <svg class="w-5 h-5 transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Builder Sprint -->
+                <div class="bg-white border border-gray-200 rounded-3xl p-10 hover:shadow-2xl transition-all duration-500 flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-dojo-purple"></div>
+                    <div class="text-xs font-bold text-dojo-purple uppercase tracking-widest mb-4">1 Saturday Morning · 4 Hours</div>
+                    <h3 class="text-4xl font-extrabold mb-4 text-gray-900">AI Builder Sprint</h3>
+                    <div class="text-2xl font-bold text-gray-400 mb-8">$147</div>
+                    
+                    <p class="text-gray-600 mb-6 font-medium leading-relaxed text-lg">
+                        Most AI training teaches you tools in a vacuum. This isn't a tutorial — it's a live execution sprint where you dissect how real AI products work, then build and deploy your own version before lunch.
+                    </p>
+
+                    <!-- Expanded Content -->
+                    <div id="builder-expanded" class="overflow-hidden transition-all duration-500 max-h-0 opacity-0 flex flex-col gap-6">
+                        <ul class="space-y-4 mb-2">
+                            <li class="flex items-start gap-3 text-gray-600 text-lg font-medium leading-relaxed">
+                                <span class="text-dojo-purple font-bold mt-0.5">✓</span>
+                                <span><strong>The X-Ray:</strong> Tear apart 3 AI products that are already making money. Learn to see the wiring — what's AI, what's a wrapper, where's the actual value.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-600 text-lg font-medium leading-relaxed">
+                                <span class="text-dojo-purple font-bold mt-0.5">✓</span>
+                                <span><strong>The Build:</strong> Learn agentic AI hands-on — prompt chaining, tool use, and workflow automation — as you wire a working proof-of-concept for your own use case. No coding experience needed.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-600 text-lg font-medium leading-relaxed">
+                                <span class="text-dojo-purple font-bold mt-0.5">✓</span>
+                                <span><strong>The Deploy:</strong> Ship it live, get feedback, and walk out with a deployed prototype and a 1-page product brief.</span>
+                            </li>
+                        </ul>
+
+                        <!-- Prominent Link -->
+                        <a href="https://buy.stripe.com/your-ai-sprint-link" class="block w-full text-center py-5 rounded-2xl bg-dojo-purple text-white font-black text-xl hover:bg-purple-700 transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transform hover:-translate-y-1">
+                            Register for AI Builder Sprint &rarr;
+                        </a>
+                    </div>
+
+                    <div class="mt-auto pt-6">
+                        <button onclick="toggleCard('builder-expanded', this)" class="w-full text-center py-4 rounded-2xl bg-gray-50 text-gray-700 font-bold text-lg hover:bg-gray-100 transition-all flex items-center justify-center gap-2 border border-transparent hover:border-gray-200">
+                            <span class="btn-text">See More...</span>
+                            <svg class="w-5 h-5 transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -516,7 +573,7 @@ title: AI Career Initiative | Hacker Dojo
                         <span class="faq-icon text-gray-400 text-3xl font-light leading-none select-none">+</span>
                     </button>
                     <div class="hidden px-8 pb-6 text-gray-600 text-base leading-relaxed border-t border-gray-100 pt-5 font-medium">
-                        We run cohorts roughly every 6–8 weeks. Click on https://hackerdojo.com/priority-waitlist to join the waiting list. 
+                        We run cohorts roughly every 6–8 weeks. Founding cohorts are launching now with bonus perks (founding alumni status, free 90-day Community membership, name on the Founders Wall). Click "Find Your Path" above or join our list to be notified about the next start date.
                     </div>
                 </div>
             </div>
