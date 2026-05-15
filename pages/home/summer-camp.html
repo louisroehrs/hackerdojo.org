@@ -4,6 +4,7 @@
     color: rgb(73,0,9);
   }
 
+  ul {padding-left: 3em; }
   .sc-hero {
     background: linear-gradient(175deg, #fff4d2 0%, #fa9ef9 25%, #fbc0f9 100%);
     padding: 80px 40px 70px;
@@ -11,6 +12,10 @@
     position: relative;
     overflow: hidden;
     color: rgb(73,0,9);
+  }
+
+  .sc-hero-camp {
+    margin-bottom:20px;
   }
   
   .sc-hero-dots {
@@ -33,11 +38,62 @@
     filter: blur(80px);
     pointer-events: none;
   }
+
+  /* ── Lava lamp blobs ────────────────────────────────────────── */
+  .sc-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    will-change: transform, border-radius;
+    mix-blend-mode: multiply;
+    opacity: 0.65;
+  }
+  .sc-blob-1 {
+    width: 400px; height: 400px;
+    background: #ffb347;
+    top: -100px; left: -80px;
+    animation: sc-lava1 15s ease-in-out infinite;
+  }
+  .sc-blob-2 {
+    width: 320px; height: 350px;
+    background: #e040fb90;
+    bottom: -80px; right: -60px;
+    animation: sc-lava2 19s ease-in-out infinite;
+  }
+  .sc-blob-3 {
+    width: 280px; height: 300px;
+    background: #ff6ec730;
+    top: 35%; left: 42%;
+    animation: sc-lava3 23s ease-in-out infinite;
+  }
+
+  @keyframes sc-lava1 {
+    0%   { transform: translate(0px,   0px)   scale(1);    border-radius: 50%; }
+    20%  { transform: translate(90px,  70px)  scale(1.1);  border-radius: 42% 58% 55% 45% / 50% 48% 52% 50%; }
+    45%  { transform: translate(40px, 140px)  scale(0.92); border-radius: 58% 42% 40% 60% / 45% 55% 45% 55%; }
+    70%  { transform: translate(-50px, 80px)  scale(1.07); border-radius: 45% 55% 62% 38% / 55% 42% 58% 45%; }
+    100% { transform: translate(0px,   0px)   scale(1);    border-radius: 50%; }
+  }
+  @keyframes sc-lava2 {
+    0%   { transform: translate(0px,    0px)    scale(1);    border-radius: 50%; }
+    25%  { transform: translate(-80px, -90px)   scale(1.12); border-radius: 60% 40% 52% 48% / 48% 55% 45% 52%; }
+    55%  { transform: translate(-130px, -35px)  scale(0.88); border-radius: 44% 56% 68% 32% / 52% 44% 56% 48%; }
+    80%  { transform: translate(-55px, -110px)  scale(1.06); border-radius: 55% 45% 38% 62% / 40% 58% 42% 60%; }
+    100% { transform: translate(0px,    0px)    scale(1);    border-radius: 50%; }
+  }
+  @keyframes sc-lava3 {
+    0%   { transform: translate(0px,   0px)   scale(1);    border-radius: 50%; }
+    18%  { transform: translate(-70px, 55px)  scale(1.18); border-radius: 38% 62% 47% 53% / 55% 44% 56% 45%; }
+    42%  { transform: translate(85px, -65px)  scale(0.83); border-radius: 65% 35% 54% 46% / 42% 58% 42% 58%; }
+    68%  { transform: translate(25px,  85px)  scale(1.1);  border-radius: 50% 50% 38% 62% / 58% 42% 58% 42%; }
+    100% { transform: translate(0px,   0px)   scale(1);    border-radius: 50%; }
+  }
   .sc-badge {
     display: inline-block;
     background: rgba(251,191,36,0.13);
 #    color: #fbbf24;
-    border: 1px solid rgba(251,191,36,0.25);
+    border: 1px solid rgba(151,91,86,0.25);
     font-family: "Rajdhani";
     font-size: 14px;
     font-weight: 600;
@@ -47,6 +103,27 @@
     border-radius: 20px;
     margin-bottom: 28px;
   }
+  .simplecard{
+    border: 1px solid rgba(151,91,86,0.25);
+    width: 250px;
+  }
+  .simplecard-icon {
+    font-size:500%;
+    flex: 0 1 calc(33.33% - 10px); 
+  }
+  
+  #member-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    /* Limit to exactly 3 columns of equal size */
+    grid-template-columns: repeat(3); 
+    /* Centers the entire grid track horizontally in the container */
+    justify-content: center; 
+    /* Centers the content inside each individual cell */
+    justify-items: center; 
+    gap: 20px;
+  }
+  
   .sc-hero-title {
     font-family: "Rajdhani";
     font-size: 74px;
@@ -327,13 +404,19 @@
 <div class="sc-hero">
     <div class="sc-hero-dots"></div>
     <div class="sc-hero-glow"></div>
-    <div class="section-content" style="position:relative;z-index:2;">
+    <div class="sc-blob sc-blob-1"></div>
+    <div class="sc-blob sc-blob-2"></div>
+    <div class="sc-blob sc-blob-3"></div>
+    <div>
+      <div class="sc-hero-camp">
+        <img src="/static/images/summer-camp-2026-474dd079-3751-4597-bc60-ddf98150b8bd.png.avif" width=300></img>
+      </div>
+
+      <div class="section-content" style="position:relative;z-index:2;">
         <div class="sc-badge">☀ Summer 2026 &nbsp;·&nbsp; Mountain View, CA</div>
         <div class="sc-hero-title">Hacker Dojo<br><span>Summer Camp</span></div>
         <div class="sc-hero-desc">
-            A hands-on STEAM program where students ages&nbsp;12–17 explore technology, design,
-            and innovation through real-world projects — game development, robotics, 3D printing,
-            fashion design, and more.
+Hacker Dojo Summer Camp is a hands-on, creativity-driven program where students explore technology, design, and innovation through interactive classes. Campers can dive into Game Design, Fashion and Textiles, 3D Design and Making, Entrepreneurship, and LEGO Robotics Space Camp. Each course is built to spark curiosity, build real-world skills, and encourage kids 12 - 17 years old to create, experiment, and bring their ideas to life in a fun, collaborative environment.
         </div>
         <div class="sc-hero-cta">
             <a href="https://lu.ma/HDSummerCamp2026" target="_blank" class="sc-btn-gold">Register Now &rarr;</a>
@@ -357,6 +440,7 @@
                 <div class="sc-stat-label">Sessions</div>
             </div>
         </div>
+      </div>
     </div>
 </div>
 
@@ -378,17 +462,22 @@
             <div class="simplecard">
                 <div class="simplecard-icon">🖨</div>
                 <div class="simplecard-title">3D Design &amp; Making</div>
-                <div class="simplecard-desc">Modeling &amp; printing</div>
+                <div class="simplecard-desc">Modeling &amp; Printing</div>
             </div>
             <div class="simplecard">
                 <div class="simplecard-icon">🤖</div>
                 <div class="simplecard-title">Robotics</div>
-                <div class="simplecard-desc">LEGO, VEX IQ &amp; SumoBots</div>
+                <div class="simplecard-desc">LEGO, VEX IQ, &amp; SumoBots</div>
             </div>
             <div class="simplecard">
                 <div class="simplecard-icon">🪡</div>
                 <div class="simplecard-title">Fashion &amp; Textiles</div>
-                <div class="simplecard-desc">Sewing &amp; runway</div>
+                <div class="simplecard-desc">Sewing &amp; Tailoring</div>
+            </div>
+            <div class="simplecard">
+                <div class="simplecard-icon">🎭</div>
+                <div class="simplecard-title">Prop Making</div>
+                <div class="simplecard-desc">Cosplay & Movies</div>
             </div>
         </div>
     </div>
@@ -413,14 +502,12 @@
                 <span class="sc-course-emoji">🎮</span>
                 <div class="sc-course-name">Game Design with Scratch</div>
                 <div class="sc-course-desc">
-                    A STEM introduction using Scratch software. Students design and build their
-                    own games every day, developing logic, creativity, and computational thinking
-                    from the ground up.
+This STEM class is an introduction to Game Design using Scratch software to teach students about real-world game design concepts in a fun and exciting way. Students will learn design concepts, coding actions such as loops, variables, functions and pseudocode The students will create an account and can download and play their games at home. Each day students will make a new game culminating in a final game day challenge. Availability is limited.
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–16</span>
                     <span class="sc-tag">Weeks 2, 4, 6</span>
-                    <span class="sc-tag">9:30am–12:30pm</span>
+                    <span class="sc-tag">AM or PM</span>
                 </div>
             </div>
 
@@ -430,9 +517,15 @@
                 <span class="sc-course-emoji">🖨</span>
                 <div class="sc-course-name">3D Print &amp; Design</div>
                 <div class="sc-course-desc">
-                    Hands-on tutorials covering basic 3D modeling and product design concepts.
-                    Students design real objects and bring them to life using Hacker Dojo's
-                    3D printers.
+This session is designed for newcomers, makers, and aspiring entrepreneurs who want to learn not only how to create 3D printed products, but also how to turn their ideas into a brand people recognize and connect with. Students will create a TinkerCad account to begin designing projects while learning the fundamentals of product development, branding, and presentation. Throughout the course, we’ll guide students through the essential tools and programs needed for modeling, slicing, printing, and building a marketable product identity.
+What to Expect:
+<ul><li>
+ Beginner-friendly introduction to 3D printing technology; no experience necessary!
+</li><li>Hands-on tutorials covering basic 3D modeling and product design concepts
+</li><li>Guidance on creating a brand around your 3D printed product
+</li><li>Introduction to logo design and visual brand identity
+  </li><li>Product market analysis to help students understand target audience
+    </li>
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–17</span>
@@ -443,13 +536,23 @@
 
             <!-- Fashion & Textile Design -->
             <div class="sc-course-card sc-t-rose">
-                <span class="sc-level-badge sc-b-rose">Beginner–Intermediate</span>
+                <span class="sc-level-badge sc-b-rose">Beginner–Intermediate Level 1-2</span>
                 <span class="sc-course-emoji">🪡</span>
                 <div class="sc-course-name">Fashion &amp; Textile Design</div>
                 <div class="sc-course-desc">
-                    Machine sewing fundamentals leading to a final runway showcase. Students
-                    learn to design, cut, sew, and present original garments — from sketch
-                    to catwalk.
+Are you into fashion? Interested learning how to make your own clothing? Just want to be able to mend your favorite shirt or hem your favorite pants? This class is for you!
+You will learn all the steps of machine sewing from Sewing 101 to Designing your Own piece for our Runway show.
+Sewing machines and tools will be available. Some fabric is available, for a unique design plan to bring your own fabric. If you would like to bring your own tools and sewing machine, they would be most welcome.
+What you will learn:
+<ul>
+<li>Introduction to Fashion & Textile Arts
+</li><li>Basic Sewing Skills & Stitches
+</li><li>Mending, Altering and Embellishing
+</li><li>Pattern Making Fundamentals
+</li><li>Project Design & Fabric Preparation
+</li><li>Construction & Assembly
+</li><li>Tailoring, Finishing & Showcase
+    </li></ul>
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–17</span>
@@ -464,9 +567,7 @@
                 <span class="sc-course-emoji">🤖</span>
                 <div class="sc-course-name">LEGO Robotics Space Camp</div>
                 <div class="sc-course-desc">
-                    Solar system–themed projects that combine LEGO building with programming
-                    concepts, emphasizing teamwork and 21st-century skills through space
-                    exploration challenges.
+This exhilarating class is teamwork focused with an emphasis on Solar System Space projects. Students will see the future while learning about the Moon, Artemis Mission, Mars and our Solar System. Students will be building and programming robots using LEGO® Robotics Systems to complete an out of this world space missions and challenges. This class will teach students teamwork, project planning and documentation skills. Students will learn the essential 21st century skills needed to become the pioneering minds of tomorrow all while having fun with daily activities and game challenges. Availability is limited.
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–16</span>
@@ -481,9 +582,7 @@
                 <span class="sc-course-emoji">⚙</span>
                 <div class="sc-course-name">VEX IQ Engineering &amp; Game Challenge</div>
                 <div class="sc-course-desc">
-                    Students build and program VEX IQ robots, applying sensor logic and
-                    engineering design to compete in structured game challenges — a serious
-                    intro to competitive robotics.
+It’s Your Future – Learn about STEM, engineering, and robotics. Let’s get started learning about VEX IQ, the controller, and the robot brain. Take the next step in your robotics experience and expand your skills building and programming robots using the VEX IQ Robotics System. Students will learn programming skills and engineering design with the VEX IQ system using motors, touch, color, bump and distance sensors. Students will learn to build and code several different VEX IQ robots from kits provided. Students will gain teamwork skills while sharing a VEX IQ robotics kit and computer to complete daily game challenges. This class is suitable preparation for students interested in VEX IQ Tournaments. Availability is limited.
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–17</span>
@@ -498,9 +597,8 @@
                 <span class="sc-course-emoji">🕹</span>
                 <div class="sc-course-name">Game Design with Godot</div>
                 <div class="sc-course-desc">
-                    Video game creation using the Godot 4 engine — the open-source professional
-                    tool used by indie studios worldwide. Students design levels, code mechanics,
-                    and ship playable games.
+Build your own video game in just one week with Godot 4! In this hands-on class, you’ll go from beginner to game creator—designing characters, coding mechanics, and publishing a playable game. Bring your own computer and a basic understanding of programming and leave with a game you can share. No experience with game engines? No problem—just bring your ideas and get ready to create!
+Availability is limited.
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 14–17</span>
@@ -515,9 +613,7 @@
                 <span class="sc-course-emoji">🥊</span>
                 <div class="sc-course-name">Robotics SumoBot Engineering</div>
                 <div class="sc-course-desc">
-                    Engineering design for competitive robot challenges. Students design, build,
-                    and program SumoBots to compete in arena battles — applying physics,
-                    electronics, and coding strategy.
+This exhilarating class is teamwork focused with an emphasis on SumoBot projects. Students will learn key engineering concepts to design stronger, faster robots for Sumo challenges. Students will be building and programming robots using LEGO® Robotics Systems to complete thrilling game challenges. This class will teach students teamwork, project planning and documentation skills. Students will learn the essential 21st century skills needed to become the pioneering minds of tomorrow all while having fun with daily activities and game challenges. Availability is limited.
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–16</span>
@@ -532,9 +628,7 @@
                 <span class="sc-course-emoji">🎭</span>
                 <div class="sc-course-name">Prop Making for Cosplay &amp; Movies</div>
                 <div class="sc-course-desc">
-                    Multi-material prop creation for cosplay and film. Students combine foam,
-                    thermoplastics, paint, and electronics to build professional-quality props
-                    from concept to finished piece.
+Are you interested in designing your own props for fun and adventure? Learn engineering design while making your props for cosplay, movie making or just for fun. Students will have an opportunity to use a variety of materials to expand their artistic and engineering talents to make a prosthetic piece, a cosplay item, or a movie prop that you will get to take home at the end of the week. Many different and unique materials will be used including textiles, 3d printing, upcycled materials. Previous classes in 3D printing and Fashion & Textiles recommended but not required. Limited availability.
                 </div>
                 <div class="sc-course-tags">
                     <span class="sc-tag">Ages 12–17</span>
@@ -554,7 +648,7 @@
     <div class="section-content">
         <div class="section-title">12-Week Calendar</div>
         <div class="section-description" style="margin-bottom:40px;">
-            Mix and match weeks across the summer — each session is self-contained.
+            Mix and match weeks across the summer — each session is self-contained. Morning session is listed first, followed by afternoon session for each week.
         </div>
         <div class="sc-schedule-grid">
 
@@ -642,7 +736,7 @@
                 <div class="sc-info-label">🕐 Session Times</div>
                 <div class="sc-info-value">Morning: 9:30am – 12:30pm</div>
                 <div class="sc-info-value">Afternoon: 1:00pm – 4:00pm</div>
-                <div class="sc-info-note" style="margin-top:8px;">Some courses offer both sessions — check the course card for availability.</div>
+                <div class="sc-info-note" style="margin-top:8px;">Some courses offer both sessions — check the course card on <a href="https://luma.com/HDSummerCamp2026">Luma</a> for availability.</div>
             </div>
             <div class="sc-info-card">
                 <div class="sc-info-label">👤 Who Can Attend</div>
