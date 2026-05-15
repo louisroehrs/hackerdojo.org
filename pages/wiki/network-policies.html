@@ -1,0 +1,76 @@
+{% include wiki-nav.html %}
+
+<div class="section wiki-hero-section">
+  <div class="section-content">
+    <div class="wiki-breadcrumb"><a href="/">Home</a><span>/</span><a href="/wiki/">Wiki</a><span>/</span> Network Policies</div>
+    <div class="wiki-page-title">Network Policies</div>
+    <div class="wiki-page-desc">Rules and technical specifications for access points and WiFi use at Hacker Dojo.</div>
+  </div>
+</div>
+
+<div class="section wiki-content-section">
+  <div class="wiki-content">
+
+    <div class="wiki-callout wiki-callout-red">
+      <strong>ACCESS POINT FOR TESTING PURPOSES ONLY.</strong> Internet access for your devices should use Hacker Dojo WiFi, not your own access point.
+    </div>
+
+    <div class="wiki-h2">Access Point Rules</div>
+
+    <div class="wiki-h3">Guests</div>
+    <p class="wiki-p">Guests <strong>cannot</strong> establish their own access points at the facility. Use the <strong>HD-Guest</strong> network.</p>
+
+    <div class="wiki-h3">Members</div>
+    <p class="wiki-p">Members may set up access points <strong>exclusively for testing purposes</strong> related to their work. Your devices' internet access should still go through Hacker Dojo WiFi — not through your AP.</p>
+
+    <div class="wiki-h2">Technical Requirements</div>
+    <p class="wiki-p">If you're setting up a member testing AP, you must follow these specifications to avoid interfering with the facility network:</p>
+
+    <div class="wiki-policy-block">
+      <div class="wiki-policy-title">Channel Width</div>
+      <div class="wiki-policy-body">Use only <strong>20 MHz channels</strong>. 40 MHz and 80 MHz channels create interference with the facility WiFi.</div>
+    </div>
+
+    <div class="wiki-policy-block">
+      <div class="wiki-policy-title">Transmit Power</div>
+      <div class="wiki-policy-body">Limit to <strong>3 dB maximum</strong>. Higher power output would exceed the strength of our access points and degrade the network for everyone.</div>
+    </div>
+
+    <div class="wiki-policy-block">
+      <div class="wiki-policy-title">2.4 GHz Band</div>
+      <div class="wiki-policy-body">
+        Use <strong>Channel 11 only</strong>.<br>
+        <span class="wiki-network-channel">Ch 11</span>
+      </div>
+    </div>
+
+    <div class="wiki-policy-block">
+      <div class="wiki-policy-title">5 GHz Band</div>
+      <div class="wiki-policy-body">
+        Allowed channels:<br>
+        <span class="wiki-network-channel">52</span>
+        <span class="wiki-network-channel">54</span>
+        <span class="wiki-network-channel">60</span>
+        <span class="wiki-network-channel">64</span>
+        <span class="wiki-network-channel">100</span>
+        <span class="wiki-network-channel">104</span>
+        <span class="wiki-network-channel">108</span>
+        <span class="wiki-network-channel">112</span>
+        <span class="wiki-network-channel">136</span>
+        <span class="wiki-network-channel">140</span>
+        <span class="wiki-network-channel">144</span>
+      </div>
+    </div>
+
+    <div class="wiki-h2">Enforcement</div>
+    <div class="wiki-callout wiki-callout-red">
+      Non-compliance may result in <strong>loss of personal access point privileges</strong> and potential <strong>membership termination</strong>.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <a href="/wiki/wifi-troubleshooting/" class="button button-red">WiFi Help</a>
+      <a href="/wiki/policies/" class="button">Full Policies</a>
+    </div>
+
+  </div>
+</div>

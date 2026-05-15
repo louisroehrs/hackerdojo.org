@@ -1,0 +1,231 @@
+<style>
+/* === WIKI SHARED STYLES === */
+.wiki-hero-section {
+  padding: 40px 40px 30px !important;
+  background: #fff !important;
+  border-bottom: 1px solid #eee;
+  text-align: left !important;
+}
+.wiki-breadcrumb {
+  font-family: "Rajdhani";
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #bbb;
+  margin-bottom: 14px;
+}
+.wiki-breadcrumb a { color: #df3f33; }
+.wiki-breadcrumb span { margin: 0 6px; }
+.wiki-page-title {
+  font-family: "Rajdhani";
+  font-size: 42px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.wiki-page-desc {
+  font-size: 16px;
+  color: #555;
+  max-width: 640px;
+  line-height: 1.6;
+}
+.wiki-nav-section {
+  background: #fff !important;
+  padding: 0 40px !important;
+  border-bottom: 2px solid #f0f0f0;
+  text-align: left !important;
+}
+.wiki-nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  max-width: 900px;
+  margin: auto;
+  padding: 10px 0;
+}
+.wiki-nav-link {
+  font-family: "Rajdhani";
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #555 !important;
+  padding: 5px 10px;
+  border-radius: 7px;
+  white-space: nowrap;
+  transition: 0.15s;
+}
+.wiki-nav-link:hover { background: #f0f0f0; color: #111 !important; }
+.wiki-nav-link-active { background: #fff0ee; color: #df3f33 !important; }
+.wiki-content-section {
+  padding-top: 50px !important;
+  padding-bottom: 80px !important;
+  text-align: left !important;
+}
+.wiki-content { max-width: 800px; margin: auto; }
+.wiki-h2 {
+  font-family: "Rajdhani";
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin: 40px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.wiki-h2:first-child { margin-top: 0; }
+.wiki-h3 {
+  font-family: "Rajdhani";
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 24px 0 8px;
+}
+.wiki-h4 {
+  font-family: "Rajdhani";
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #666;
+  margin: 18px 0 6px;
+}
+.wiki-p { font-size: 15px; color: #333; line-height: 1.8; margin-bottom: 14px; }
+.wiki-ul, .wiki-ol { padding-left: 22px; margin-bottom: 16px; }
+.wiki-ul li, .wiki-ol li { font-size: 15px; color: #333; line-height: 1.75; margin-bottom: 5px; }
+.wiki-callout {
+  background: #f0ebff;
+  border-left: 4px solid #6d3bdb;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+.wiki-callout-red { background: #fff0ee; border-left-color: #e13838; }
+.wiki-callout-green { background: #f0fff8; border-left-color: #018669; }
+.wiki-callout-yellow { background: #fffbf0; border-left-color: #e6a817; }
+.wiki-toc {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  display: inline-block;
+  min-width: 240px;
+}
+.wiki-toc-title {
+  font-family: "Rajdhani";
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.wiki-toc a { display: block; font-size: 14px; color: #df3f33; padding: 3px 0; }
+.wiki-toc a:hover { color: #b52a2a; }
+.wiki-policy-block {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.04), 0px 0px 3px rgba(0,0,0,0.03);
+}
+.wiki-policy-title {
+  font-family: "Rajdhani";
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 5px;
+}
+.wiki-policy-body { font-size: 14px; color: #555; line-height: 1.6; }
+.wiki-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+.wiki-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 22px;
+  border: 2px solid #f0f0f0;
+  transition: 0.15s;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.04), 0px 0px 2px rgba(0,0,0,0.04), 0px 0px 3px rgba(0,0,0,0.02), 0px 0px 5px rgba(0,0,0,0.03);
+}
+.wiki-card:hover { border-color: peachpuff; }
+.wiki-card-icon { color: #df3f33; margin-bottom: 12px; }
+.wiki-card-title { font-family: "Rajdhani"; font-size: 18px; font-weight: 600; color: #111; margin-bottom: 6px; }
+.wiki-card-desc { font-size: 13px; color: #666; line-height: 1.55; }
+.wiki-member-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin: 16px 0;
+}
+.wiki-member-item {
+  font-size: 14px;
+  color: #333;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+.wiki-tag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #555;
+  font-family: "Rajdhani";
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+.wiki-network-channel {
+  display: inline-block;
+  background: #e1d4ff;
+  color: #5a2db5;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin: 2px;
+}
+@media (max-width: 960px) {
+  .wiki-hero-section { padding: 28px 20px 22px !important; }
+  .wiki-nav-section { padding: 0 20px !important; }
+  .wiki-content-section { padding-top: 30px !important; padding-bottom: 50px !important; }
+  .wiki-page-title { font-size: 32px; }
+  .wiki-card-grid { grid-template-columns: 1fr 1fr; }
+  .wiki-member-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .wiki-card-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="section wiki-nav-section">
+  <div class="wiki-nav-inner">
+    <a href="/wiki/" class="wiki-nav-link{% if page.url == '/wiki/' %} wiki-nav-link-active{% endif %}">Overview</a>
+    <a href="/wiki/visitors-guide/" class="wiki-nav-link{% if page.url == '/wiki/visitors-guide/' %} wiki-nav-link-active{% endif %}">Visitors Guide</a>
+    <a href="/wiki/about/" class="wiki-nav-link{% if page.url == '/wiki/about/' %} wiki-nav-link-active{% endif %}">About</a>
+    <a href="/wiki/membership/" class="wiki-nav-link{% if page.url == '/wiki/membership/' %} wiki-nav-link-active{% endif %}">Membership</a>
+    <a href="/wiki/visitors/" class="wiki-nav-link{% if page.url == '/wiki/visitors/' %} wiki-nav-link-active{% endif %}">Visitors</a>
+    <a href="/wiki/policies/" class="wiki-nav-link{% if page.url == '/wiki/policies/' %} wiki-nav-link-active{% endif %}">Policies</a>
+    <a href="/wiki/maker-labs/" class="wiki-nav-link{% if page.url == '/wiki/maker-labs/' %} wiki-nav-link-active{% endif %}">Maker Labs</a>
+    <a href="/wiki/community/" class="wiki-nav-link{% if page.url == '/wiki/community/' %} wiki-nav-link-active{% endif %}">Community</a>
+    <a href="/wiki/events/" class="wiki-nav-link{% if page.url == '/wiki/events/' %} wiki-nav-link-active{% endif %}">Events</a>
+    <a href="/wiki/network-policies/" class="wiki-nav-link{% if page.url == '/wiki/network-policies/' %} wiki-nav-link-active{% endif %}">Network</a>
+    <a href="/wiki/wifi-troubleshooting/" class="wiki-nav-link{% if page.url == '/wiki/wifi-troubleshooting/' %} wiki-nav-link-active{% endif %}">WiFi Help</a>
+    <a href="/wiki/founding-members/" class="wiki-nav-link{% if page.url == '/wiki/founding-members/' %} wiki-nav-link-active{% endif %}">Founding Members</a>
+    <a href="/wiki/bylaws/" class="wiki-nav-link{% if page.url == '/wiki/bylaws/' %} wiki-nav-link-active{% endif %}">Bylaws</a>
+    <a href="/wiki/marketing/" class="wiki-nav-link{% if page.url == '/wiki/marketing/' %} wiki-nav-link-active{% endif %}">Marketing</a>
+  </div>
+</div>
