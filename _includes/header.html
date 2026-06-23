@@ -46,7 +46,7 @@
       <a href="/aistars">AI Stars</a>
       <a href="/summer-camp/">Summer Camp</a>
 <!--      <a href="/cocreate">CoCreate</a> -->
-			<a href="https://www.meetup.com/hackerdojo/events/">Events</a>
+			<a href="/events/">Events</a>
 			<a href="/startups/">Startups</a>
       <a href="/pricing/">Pricing</a>
       <a href="/impact-report/">Impact Report</a>
@@ -65,7 +65,6 @@
 					<svg style="color:#df3f33; width: 24px; height: 24px; float: left;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
 				</a>
 			</div>
-
 			<div class="mobile-navigation-holder">
 				<div class="mobile-navigation-button" onclick="toggleNav()">
 					<div></div>
@@ -75,7 +74,7 @@
 
 				<div id="mobile-navigation-popup" class="mobile-navigation-popup">
 					<a href="https://hackerdojo.spaces.nexudus.com/login" style="font-weight: 500 !important;">Member Portal</a>
-					<a href="https://www.meetup.com/hackerdojo/" id="events-button" class="button events-button" style="max-width: 120px; margin: auto; padding: 0px 14px;">
+					<a href="/events/" id="events-button" class="button events-button" style="max-width: 120px; margin: auto; padding: 0px 14px;">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style=""><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" style="color: #e13838;" /></svg>
 						<span>Events</span>
 					</a>
@@ -94,8 +93,20 @@
 				</div>
 			</div>
 		</div>
+    
+  </div>
+    <div style="margin-left:20px; margin-right:20px" id="teletrex-search"></div>
+    <script src="http://localhost:3000/sdk/teletrex.js"></script>
+    <script>
+      TeletrexAssistant.init({
+        container: '#teletrex-search',
+        apiKey: 'ttx_e06b29d3ae75f7d617caf10b8609c932fad977f5',
+        apiUrl: 'http://localhost:3000/v1/ask',
+        placeholder: 'Ask us anything...'
+      });
+    </script>
+    
 	</div>
-</div>
 
 <script>
 	function toggleNav() {
