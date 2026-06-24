@@ -42,15 +42,35 @@ function parseFeed(xml) {
   }));
 }
 
+// The RSS feed has no images, so scrape each event page's og:image meta tag.
+async function fetchImage(url) {
+  try {
+    const r = await fetch(url, { headers: { 'User-Agent': 'hackerdojo.org events page' } });
+    if (!r.ok) return '';
+    const html = await r.text();
+    const m = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+    return m ? m[1] : '';
+  } catch {
+    return '';
+  }
+}
+
 function buildCard(event) {
   const date = formatDate(event.date);
   const title = escapeHtml(event.title);
   const description = escapeHtml(truncate(event.description, 160));
   const link = encodeURI(event.link);
+  const photo = event.image ? encodeURI(event.image) : '';
+
+  const media = photo
+    ? `<a href="${link}" target="_blank" rel="noopener" class="block shrink-0">
+         <img src="${photo}" alt="" loading="lazy" class="w-full h-48 object-cover">
+       </a>`
+    : `<div class="w-full h-2 bg-gradient-to-r from-dojo-red to-dojo-navy"></div>`;
 
   return `
     <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-      <div class="w-full h-2 bg-gradient-to-r from-dojo-red to-dojo-navy"></div>
+      ${media}
       <div class="p-5 flex flex-col flex-1">
         ${date ? `<p class="text-dojo-red font-heading font-semibold text-sm uppercase tracking-wide mb-2">${date}</p>` : ''}
         <h3 class="font-heading font-bold text-xl text-dojo-navy mb-3 leading-tight">
@@ -85,6 +105,10 @@ export default async function handler(req, res) {
     }
 
     const events = parseFeed(await response.text());
+
+    // Scrape each event's og:image in parallel (cached 5 min by the header above).
+    await Promise.all(events.map(async (e) => { e.image = await fetchImage(e.link); }));
+
     const html = events.map(buildCard).join('');
 
     res.setHeader('Content-Type', 'application/json');
