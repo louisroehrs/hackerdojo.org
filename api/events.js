@@ -14,10 +14,23 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+const TZ = 'America/Los_Angeles'; // Hacker Dojo is in Santa Clara, CA
+
 function formatDate(iso) {
   const d = new Date(iso);
   if (isNaN(d)) return '';
-  return `${DAYS[d.getDay()]}, ${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  const p = new Intl.DateTimeFormat('en-US', {
+    timeZone: TZ, weekday: 'short', month: 'short', day: 'numeric', year: 'numeric',
+  }).formatToParts(d).reduce((o, x) => (o[x.type] = x.value, o), {});
+  return `${p.weekday}, ${p.month} ${p.day}, ${p.year}`;
+}
+
+function formatTime(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return '';
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: TZ, hour: 'numeric', minute: '2-digit', hour12: true,
+  }).format(d);
 }
 
 function truncate(text, max) {
@@ -42,21 +55,32 @@ function parseFeed(xml) {
   }));
 }
 
-// The RSS feed has no images, so scrape each event page's og:image meta tag.
-async function fetchImage(url) {
+// The RSS feed has no images and only carries publish dates, so scrape each
+// event page for its og:image and the real start/end times (JSON-LD).
+async function fetchEventMeta(url) {
   try {
     const r = await fetch(url, { headers: { 'User-Agent': 'hackerdojo.org events page' } });
-    if (!r.ok) return '';
+    if (!r.ok) return {};
     const html = await r.text();
-    const m = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
-    return m ? m[1] : '';
+    const og = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+    const start = html.match(/"startDate":"([^"]+)"/);
+    const end = html.match(/"endDate":"([^"]+)"/);
+    return {
+      image: og ? og[1] : '',
+      startDate: start ? start[1] : '',
+      endDate: end ? end[1] : '',
+    };
   } catch {
-    return '';
+    return {};
   }
 }
 
 function buildCard(event) {
-  const date = formatDate(event.date);
+  // Prefer the real event start time scraped from the page; fall back to pubDate.
+  const date = formatDate(event.startDate || event.date);
+  const start = formatTime(event.startDate);
+  const end = formatTime(event.endDate);
+  const timeStr = start ? (end ? `${start} – ${end}` : start) : '';
   const title = escapeHtml(event.title);
   const description = escapeHtml(truncate(event.description, 160));
   const link = encodeURI(event.link);
@@ -73,9 +97,10 @@ function buildCard(event) {
       ${media}
       <div class="p-5 flex flex-col flex-1">
         ${date ? `<p class="text-dojo-red font-heading font-semibold text-sm uppercase tracking-wide mb-2">${date}</p>` : ''}
-        <h3 class="font-heading font-bold text-xl text-dojo-navy mb-3 leading-tight">
+        <h3 class="font-heading font-bold text-xl text-dojo-navy mb-1 leading-tight">
           <a href="${link}" target="_blank" rel="noopener" class="hover:text-dojo-red transition-colors">${title}</a>
         </h3>
+        ${timeStr ? `<p class="text-gray-500 text-sm mb-3">${timeStr}</p>` : '<div class="mb-3"></div>'}
         ${description ? `<p class="text-gray-600 text-sm leading-relaxed mb-4 flex-1">${description}</p>` : '<div class="flex-1"></div>'}
         <div class="flex items-center justify-end mt-2 pt-4 border-t border-gray-100">
           <a href="${link}" target="_blank" rel="noopener"
@@ -106,8 +131,11 @@ export default async function handler(req, res) {
 
     const events = parseFeed(await response.text());
 
-    // Scrape each event's og:image in parallel (cached 5 min by the header above).
-    await Promise.all(events.map(async (e) => { e.image = await fetchImage(e.link); }));
+    // Scrape each event's image + real start/end times in parallel
+    // (cached 5 min by the header above).
+    await Promise.all(events.map(async (e) => {
+      Object.assign(e, await fetchEventMeta(e.link));
+    }));
 
     const html = events.map(buildCard).join('');
 
