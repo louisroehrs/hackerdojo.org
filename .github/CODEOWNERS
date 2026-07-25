@@ -1,0 +1,5 @@
+# All repository changes require review by one of these owners
+* @PeterTheobald @phebes83 @bigwoofie @hd-admin
+
+# Protect the review policy itself
+/.github/CODEOWNERS @phebes83 @PeterTheobald @hd-admin
